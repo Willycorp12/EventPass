@@ -1,0 +1,13 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /EVPASS/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+<FilesMatch "\.(env|log|sql|json|md|gitignore)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
